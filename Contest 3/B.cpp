@@ -14,17 +14,18 @@ int main() {
         for (int j = 0; j < n; j++)
             cin >> a[j];
         sort(a.begin(), a.end());
-        for (int i = 0; i < n; i++) {
-            if (a[i] <= r) {
-                for (int j = i+1; j < n; j++) {
-                    sum = a[i] + a[j];
-                    if (sum >= l && sum <= r)
-                        ans += 1;
-                    else if (sum > r)
-                        break;
-                }
+        int k = 0, j = n-1, m;
+        while (k < j) {
+            m = k+1;
+            while (a[m] + a[k] < l && m < n)
+                m += 1;
+            while (a[j] + a[k] > r && j > k)
+                j -= 1;
+            if (m != n && k != j) {
+                ans += j - m + 1;
             }
-            else break;
+            k += 1;
+            j = n-1;
         }
         cout << ans << endl;
     }

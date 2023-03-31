@@ -53,7 +53,7 @@ int main() {
             if (total > 0)
                 cout << fixed << wins[i] / (wins[i]+losses[i]) << endl;
             else
-                cout << 0.000 << endl;
+                cout << '-' << endl;
 
         }
 
